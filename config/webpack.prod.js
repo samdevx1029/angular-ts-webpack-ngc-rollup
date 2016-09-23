@@ -26,7 +26,7 @@ const prodPlugins = [
 ];
 
 const plugins = basePlugins
-  .concat((process.env.NODE_ENV === PRODUCTION) ? prodPlugins: []);
+  .concat((process.env.NODE_ENV === 'production') ? prodPlugins: []);
 
 module.exports = {
   entry: {
