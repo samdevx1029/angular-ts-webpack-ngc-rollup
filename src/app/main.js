@@ -1,8 +1,8 @@
-"use strict";
-var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var core_1 = require('@angular/core');
-var _1 = require('./app/');
-if (_1.environment.production) {
-    core_1.enableProdMode();
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core';
+import { environment } from '../environments/environment';
+import { AppModule } from '../app/';
+if (environment.production) {
+    enableProdMode();
 }
-platform_browser_dynamic_1.bootstrap(_1.AppComponent);
+platformBrowserDynamic().bootstrapModule(AppModule);

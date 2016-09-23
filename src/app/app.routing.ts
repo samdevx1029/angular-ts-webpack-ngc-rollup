@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 const appRoutes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'protocols', component: ProtocolsComponent },
   { path: '', component: HomeComponent }
 ];
 
