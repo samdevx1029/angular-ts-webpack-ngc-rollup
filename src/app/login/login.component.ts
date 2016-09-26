@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    moduleId: module.id.toString(),
     selector: 'hpt-login',
-    template: require('./login.component.html')
+    template: '<div></div>'
 })
 export class LoginComponent implements OnInit {
     constructor() { }

@@ -68,3 +68,4 @@ ServiceNameService = __decorate([
     Injectable(), 
     __metadata('design:paramtypes', [ConnectionBackend, RequestOptions, ErrorNotifierService])
 ], ServiceNameService);
+//# sourceMappingURL=custom.data.service.js.map

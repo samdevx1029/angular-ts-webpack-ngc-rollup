@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    moduleId: module.id.toString(),
     selector: 'hpt-protocols',
-    template: require('./protocols.component.html')
+    template: '<div></div>'
 })
 export class ProtocolsComponent implements OnInit {
     constructor() { }

@@ -26,3 +26,4 @@ ErrorNotifierService = __decorate([
     Injectable(), 
     __metadata('design:paramtypes', [])
 ], ErrorNotifierService);
+//# sourceMappingURL=error.notifier.service.js.map

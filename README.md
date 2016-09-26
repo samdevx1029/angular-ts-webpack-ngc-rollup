@@ -1,14 +1,10 @@
 # angular2-typescript2-webpack2
 
-This repo creates an advanced angular2 starter project written in TypeScript2 with basic OOB components. You can add your own components to suit your application needs. The production build is based on Webpack2 and utilizes minification, concatenation, compression and tree-shaking for maximum optimization.
+This repo creates an advanced angular2 starter project written in TypeScript2 with basic OOB components. You can add your own components to suit your application needs. 
 
-Versions are always changing so this project works for the following versions.
+The production build is based on Webpack2 and utilizes minification, concatenation, compression and tree-shaking for maximum optimization.
 
-angular@2.0.0
-
-typescript@2.1.0-dev.20160922
-
-webpack@2.1.0-beta.25
+Keep checking package.json for version updates.
 
 
 # Steps
@@ -17,11 +13,19 @@ Make sure you have typescript, typings and npm installed globally.
 
 Clone this repo.
 
+Open the project in your favorite code editor/IDE. If using Visual Studio Code, it MUST be opened in admin mode (otherwise "npm install" will fail on certain webpack related install)
+
+The following commands must be performed in order.
+
 Run "npm install" from project root.
 
-Run "npm run start" from project root to see application being served from webpack dev server.
+Run "npm run webpackbuild" from project root. Webpack now only builds globals.js and index.html. It does not use the TS loader to build TS files. That task is now left to rollup.
 
-Run "npm run build" from project root to build application for production.
+Run "npm run rollupbuild" from project root. You should see newly created app.js in dist folder.
 
-Run "npm run serve" from project root to serve production application from lite-server locally.
+Need to automate this step but so far this is manual. Rename "app.js" to "app.<hash>.js" where <hash> is the hash value from webpack build.
+
+Need to automate this step but so far this is manual. To index.html, Add <script> tag with source pointing to hashed app.js from previous step. 
+
+Run "npm run serve" from project root to serve production application from dist folder using lite-server locally.
 

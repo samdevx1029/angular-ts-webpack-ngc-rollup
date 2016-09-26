@@ -18,3 +18,4 @@ ProtocolsDataService = __decorate([
     Injectable(), 
     __metadata('design:paramtypes', [Http])
 ], ProtocolsDataService);
+//# sourceMappingURL=protocols.data.service.js.map

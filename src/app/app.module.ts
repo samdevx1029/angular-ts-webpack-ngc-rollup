@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { MenubarModule, MenuItem } from 'primeng/primeng';
 import {} from 'reflect-metadata';
 
 import { AppComponent }   from './app.component';
@@ -20,8 +19,7 @@ import { ProtocolsComponent } from './components/protocols/protocols.component';
         BrowserModule,
         FormsModule,
         HttpModule,
-        appRouting,
-        MenubarModule
+        appRouting
     ],
     declarations: [
         AppComponent,

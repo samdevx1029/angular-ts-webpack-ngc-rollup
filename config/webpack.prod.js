@@ -1,3 +1,5 @@
+// bundles everything except TS files which will be built by rollup.
+
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -12,7 +14,7 @@ const basePlugins = [
   }),
   new webpack.optimize.CommonsChunkPlugin('globals'),
   new HtmlWebpackPlugin({
-    template: './src/index.html',
+    template: 'index.html',
     favicon: './src/app/favicon.ico'
   }),
   new ExtractTextPlugin("styles.css"),
@@ -31,10 +33,10 @@ const plugins = basePlugins
 module.exports = {
   entry: {
     globals: [
+      'core-js',
       'zone.js',
       'reflect-metadata'
-    ],
-    'app': './src/app/main.ts'
+    ]
   },
 
   output: {
@@ -46,14 +48,13 @@ module.exports = {
 
   resolve: {
     extensions: [
-      '.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.html'
+      '.webpack.js', '.web.js', '.js', '.html'
     ]
   },
 
   module: {
 
     loaders:  [
-      { test: /\.ts$/, exclude: [/\.(spec|e2e)\.ts$/], loader: [ 'awesome-typescript-loader?tsconfig=/src/tsconfig.json', 'awesome-typescript-loader?tsconfig=/src/tsconfig.json!angular2-template-loader' ] },   
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.html$/, loader: 'raw' },
       { test: /\.(ico)$/, loader: 'file' },
