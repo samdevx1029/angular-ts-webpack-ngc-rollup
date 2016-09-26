@@ -2,7 +2,7 @@
 
 This repo creates an advanced angular2 starter project written in TypeScript2 with basic OOB components. You can add your own components to suit your application needs. 
 
-The production build is based on Webpack2 and utilizes minification, concatenation, compression and tree-shaking for maximum optimization.
+The production build is optimized using Webpack and rollup pipelines. Webpack applies minification and concatenation to all of your app files except the typescript files. ngc and rollup together are now used to build the typescript files.
 
 Keep checking package.json for version updates.
 
