@@ -7,10 +7,10 @@
 /src/aot
 
 # typescript artifacts
-src/app/*.js
-src/app/*.map
-src/app/**/*.js
-src/app/**/*.map
+src/*.js
+src/*.map
+src/**/*.js
+src/**/*.map
 
 # rollup artifacts
 /app.js
