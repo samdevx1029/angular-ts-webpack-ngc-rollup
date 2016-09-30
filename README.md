@@ -23,7 +23,16 @@ DURING DEVELOPMENT
 
 Run "npm run webpackbuilddev" from project root. Webpack builds globals.js and index.html in project root. Webpack is not being used to build TS files. That task is now left to rollup.
 
-Run "npm run servedev" from project root. This launches gulp. Any changes to TS files will be watched, ngc and rollup will trigger and lite-server will reflect those changes. Since file I/O is occurring for ngc and rollup, this process is slow despite being automated.
+Run "npm run servedev" from project root. This launches gulp in watch mode. 
+
+Make a tiny change in any of your app's TS files, for example the title property on acpp.component.ts if you have it. At this point, gulp will trigger ngc and rollup which will do their respective tasks in the background i.e. AOT compilation and tree-shake. Finally, gulp will will invoke lite-server to serve index.html. Since file I/O is occurring for ngc and rollup, this process is slow despite being automated. Need to make this occur in-memory.
+
+2 things to note:
+
+- if the served page does not show correctly and F12 tool shows an error "Angular requires Zone.js prolyfill", manually edit the index.html outputted by webpackbuilddev script above and make sure script "globals.js" appears BEFORE "app.js".
+- if the served page does not refelect your code changes even after the ngc and rollup tasks have completed, hit F12 to refresh.
+
+
 
 PRODUCTION DEPLOY
 
