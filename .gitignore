@@ -12,9 +12,12 @@ src/app/*.map
 src/app/**/*.js
 src/app/**/*.map
 
-# gulp artifacts
+# rollup artifacts
 /app.js
+
+# webpack artifacts
 /index.html
+/globals.js
 
 # dependencies
 /node_modules
