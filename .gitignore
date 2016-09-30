@@ -4,6 +4,17 @@
 /dist
 /tmp
 /aot
+/src/aot
+
+# typescript artifacts
+src/app/*.js
+src/app/*.map
+src/app/**/*.js
+src/app/**/*.map
+
+# gulp artifacts
+/app.js
+/index.html
 
 # dependencies
 /node_modules
