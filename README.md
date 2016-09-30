@@ -19,13 +19,21 @@ The following commands must be performed in order.
 
 Run "npm install" from project root.
 
-Run "npm run webpackbuild" from project root. Webpack now only builds globals.js and index.html. It does not use the TS loader to build TS files. That task is now left to rollup.
+DURING DEVELOPMENT
 
-Run "npm run rollupbuild" from project root. You should see newly created app.js in dist folder.
+Run "npm run webpackbuilddev" from project root. Webpack builds globals.js and index.html in project root. Webpack is not being used to build TS files. That task is now left to rollup.
 
-Need to automate this step but so far this is manual. Rename "app.js" to "app.<hash>.js" where <hash> is the hash value from webpack build.
+Run "npm run servedev" from project root. This launches gulp. Any changes to TS files will be watched, ngc and rollup will trigger and lite-server will reflect those changes. Since file I/O is occurring for ngc and rollup, this process is slow despite being automated.
 
-Need to automate this step but so far this is manual. To index.html, Add <script> tag with source pointing to hashed app.js from previous step. 
+PRODUCTION DEPLOY
 
-Run "npm run serve" from project root to serve production application from dist folder using lite-server locally.
+Run "npm run build" from project root. webpack, ngc and rollup will trigger and outputs will be saved in dist.
+
+Make the following changes manually.
+
+(1) Rename "app.js" to "app.<hash>.js" where <hash> is the hash value from webpack build.
+
+(2) To index.html, Add <script> tag with source pointing to hashed app.js from previous step. 
+
+dist folder is now ready to deploy to production/staging web server. You can also serve its content locally with "npm run serve".
 
