@@ -12,7 +12,25 @@ var rimraf = require('rimraf');
 
 gulp.task('ngc', function (cb) {
   exec('rimraf src/aot');  
-  exec('rimraf src/aot && \"node_modules/.bin/ngc\" -p src/tsconfig-aot.json', function (err, stdout, stderr) {
+  exec('\"node_modules/.bin/ngc\" -p src/tsconfig-aot.json', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
+
+gulp.task('webpack', function (cb) {
+  exec('rimraf index.html && rimraf globals.js');  
+  exec('webpack --config config/webpack.dev.js --progress --profile', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
+
+gulp.task('webpack-ngc', ['webpack'], function (cb) {
+  exec('rimraf src/aot');  
+  exec('\"node_modules/.bin/ngc\" -p src/tsconfig-aot.json', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
@@ -20,6 +38,15 @@ gulp.task('ngc', function (cb) {
 });
 
 gulp.task('rollup-dev', ['ngc'], function (cb) {
+  exec('rimraf app.js');   
+  exec('\"node_modules/.bin/rollup\" -c config/rollup.dev.js', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
+
+gulp.task('webpack-rollup-dev', ['webpack-ngc'], function (cb) {
   exec('rimraf app.js');   
   exec('\"node_modules/.bin/rollup\" -c config/rollup.dev.js', function (err, stdout, stderr) {
     console.log(stdout);
@@ -36,11 +63,20 @@ gulp.task('lite', ['rollup-dev'], function (cb) {
   });
 });
 
-gulp.task('watch-ts', function() {
-  gulp.watch(src + 'app/*.ts', ['lite']);
+gulp.task('webpack-lite', ['webpack-rollup-dev'], function (cb) {
+  exec('npm run lite', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
+
+gulp.task('watch-ts-css-html', function() {
+  gulp.watch([src + '**/*.ts', '!' + src + 'aot/**/*'], ['lite']);
+  gulp.watch([src + '**/*.html', src + '**/*.css'], ['webpack-lite']);
 });
 
 
 // Default Task
-gulp.task('default', ['watch-ts']);
+gulp.task('default', ['watch-ts-css-html']);
 

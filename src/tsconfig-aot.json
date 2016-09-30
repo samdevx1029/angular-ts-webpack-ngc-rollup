@@ -10,11 +10,11 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "files": [
-    "app/app.module.ts",
-    "app/main.ts",
-    "typings/index.d.ts"
-  ],
+  // "files": [
+  //   "app/app.module.ts",
+  //   "app/main.ts",
+  //   "typings/index.d.ts"
+  // ],
 
   "angularCompilerOptions": {
    "genDir": "aot",

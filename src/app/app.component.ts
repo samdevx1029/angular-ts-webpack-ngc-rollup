@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
   ]
 })
 export class AppComponent {
-  title = 'My App 29';
+  title = 'My App 32';
 }

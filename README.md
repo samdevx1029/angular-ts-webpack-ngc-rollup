@@ -21,16 +21,18 @@ Run "npm install" from project root.
 
 DURING DEVELOPMENT
 
-Run "npm run webpackbuilddev" from project root. Webpack builds globals.js and index.html in project root. Webpack is not being used to build TS files. That task is now left to rollup.
+Run "npm run webpackbuilddev" from project root. Webpack only builds globals.js (containing polyfills) and index.html in project root. Webpack is not being used to build the app. That task is left to AOT and Rollup.
 
 Run "npm run servedev" from project root. This launches gulp in watch mode. 
 
-Make a tiny change in any of your app's TS files, for example the title property on acpp.component.ts if you have it. At this point, gulp will trigger ngc and rollup which will do their respective tasks in the background i.e. AOT compilation and tree-shake. Finally, gulp will will invoke lite-server to serve index.html. Since file I/O is occurring for ngc and rollup, this process is slow despite being automated. Need to make this occur in-memory.
+Make a tiny change in any of your app's files, for example the title property on app.component.ts or any of your HTML templates or CSS styles so that gulp is triggered.
+
+At this point, the app files - TS, HTML and CSS files from /src down (or wherever tsconfig-aot.json lives) - are first AOT compiled by NGC and outputted to src/aot/. Rollup then reads into src/aot/ and builds the app into one bundle - app.js. In the process, rollup applies tree-shaking to remove unused functions, reducing the bundle size significantly. Finally, gulp will will invoke lite-server to serve index.html. Since file I/O is occurring for ngc and rollup, this process is slow despite being automated. Need to make this occur in-memory.
 
 2 things to note:
 
 - if the served page does not show correctly and F12 tool shows an error "Angular requires Zone.js prolyfill", manually edit the index.html outputted by webpackbuilddev script above and make sure script "globals.js" appears BEFORE "app.js".
-- if the served page does not refelect your code changes even after the ngc and rollup tasks have completed, hit F12 to refresh.
+- if the served page does not reflect your code changes even after the ngc and rollup tasks have completed, hit F12 to refresh.
 
 
 
