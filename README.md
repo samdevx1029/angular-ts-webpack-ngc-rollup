@@ -31,9 +31,9 @@ Run "npm run build" from project root. webpack, ngc and rollup will trigger and 
 
 Make the following changes manually.
 
-(1) Rename "app.js" to "app.<hash>.js" where <hash> is the hash value from webpack build.
+(1) Rename "app.js" to "app.hash.js" where 'hash' is the hash value from webpack build.
 
-(2) To index.html, Add <script> tag with source pointing to hashed app.js from previous step. 
+(2) To index.html, Add 'script' tag with source pointing to hashed app.js from previous step. 
 
 dist folder is now ready to deploy to production/staging web server. You can also serve its content locally with "npm run serve".
 
