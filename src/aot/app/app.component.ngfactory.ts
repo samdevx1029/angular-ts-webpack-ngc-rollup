@@ -15,8 +15,9 @@ import * as import7 from '@angular/core/src/change_detection/change_detection';
 import * as import8 from '@angular/core/src/metadata/view';
 import * as import9 from '@angular/core/src/linker/component_factory';
 import * as import10 from './app.component.css.shim';
-import * as import11 from '../../app/shared/header/header.component';
-import * as import12 from './shared/header/header.component.ngfactory';
+import * as import11 from '../node_modules/font-awesome/css/font-awesome.css.shim';
+import * as import12 from '../../app/shared/header/header.component';
+import * as import13 from './shared/header/header.component.ngfactory';
 var renderType_AppComponent_Host:import0.RenderComponentType = (null as any);
 class _View_AppComponent_Host0 extends import1.AppView<any> {
   _el_0:any;
@@ -45,14 +46,19 @@ function viewFactory_AppComponent_Host0(viewUtils:import4.ViewUtils,parentInject
   return new _View_AppComponent_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const AppComponentNgFactory:import9.ComponentFactory<import3.AppComponent> = new import9.ComponentFactory<import3.AppComponent>('app-root',viewFactory_AppComponent_Host0,import3.AppComponent);
-const styles_AppComponent:any[] = [import10.styles];
+const styles_AppComponent:any[] = [
+  import10.styles,
+  import11.styles
+]
+;
 var renderType_AppComponent:import0.RenderComponentType = (null as any);
 class _View_AppComponent0 extends import1.AppView<import3.AppComponent> {
   _el_0:any;
   /*private*/ _appEl_0:import2.AppElement;
-  _HeaderComponent_0_4:import11.HeaderComponent;
-  _el_1:any;
-  _text_2:any;
+  _HeaderComponent_0_4:import12.HeaderComponent;
+  _text_1:any;
+  _el_2:any;
+  _text_3:any;
   /*private*/ _expr_0:any;
   constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
     super(_View_AppComponent0,renderType_AppComponent,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
@@ -61,23 +67,25 @@ class _View_AppComponent0 extends import1.AppView<import3.AppComponent> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
     this._el_0 = this.renderer.createElement(parentRenderNode,'hpt-header',(null as any));
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
-    var compView_0:any = import12.viewFactory_HeaderComponent0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._HeaderComponent_0_4 = new import11.HeaderComponent();
+    var compView_0:any = import13.viewFactory_HeaderComponent0(this.viewUtils,this.injector(0),this._appEl_0);
+    this._HeaderComponent_0_4 = new import12.HeaderComponent();
     this._appEl_0.initComponent(this._HeaderComponent_0_4,[],compView_0);
     compView_0.create(this._HeaderComponent_0_4,[],(null as any));
-    this._el_1 = this.renderer.createElement(parentRenderNode,'h1',(null as any));
-    this._text_2 = this.renderer.createText(this._el_1,'',(null as any));
+    this._text_1 = this.renderer.createText(parentRenderNode,'\n',(null as any));
+    this._el_2 = this.renderer.createElement(parentRenderNode,'h1',(null as any));
+    this._text_3 = this.renderer.createText(this._el_2,'',(null as any));
     this._expr_0 = import7.UNINITIALIZED;
     this.init([],[
       this._el_0,
-      this._el_1,
-      this._text_2
+      this._text_1,
+      this._el_2,
+      this._text_3
     ]
     ,[],[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import11.HeaderComponent) && (0 === requestNodeIndex))) { return this._HeaderComponent_0_4; }
+    if (((token === import12.HeaderComponent) && (0 === requestNodeIndex))) { return this._HeaderComponent_0_4; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
@@ -85,13 +93,13 @@ class _View_AppComponent0 extends import1.AppView<import3.AppComponent> {
     this.detectContentChildrenChanges(throwOnChange);
     const currVal_0:any = import4.interpolate(1,'',this.context.title,'');
     if (import4.checkBinding(throwOnChange,this._expr_0,currVal_0)) {
-      this.renderer.setText(this._text_2,currVal_0);
+      this.renderer.setText(this._text_3,currVal_0);
       this._expr_0 = currVal_0;
     }
     this.detectViewChildrenChanges(throwOnChange);
   }
 }
 export function viewFactory_AppComponent0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.AppComponent> {
-  if ((renderType_AppComponent === (null as any))) { (renderType_AppComponent = viewUtils.createRenderComponentType('c:/Users/sshrestha/Source/Repos/Hamilton Plate Tracker Spa/src/app/app.component.ts class AppComponent - inline template',0,import8.ViewEncapsulation.Emulated,styles_AppComponent,{})); }
+  if ((renderType_AppComponent === (null as any))) { (renderType_AppComponent = viewUtils.createRenderComponentType('c:/Users/sshrestha/Source/Repos/Hamilton Plate Tracker Spa/src/app/app.component.html',0,import8.ViewEncapsulation.Emulated,styles_AppComponent,{})); }
   return new _View_AppComponent0(viewUtils,parentInjector,declarationEl);
 }

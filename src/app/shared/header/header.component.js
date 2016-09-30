@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 export var HeaderComponent = (function () {
     function HeaderComponent() {
     }
-    HeaderComponent.prototype.ngOnInit = function () { };
+    HeaderComponent.prototype.ngOnInit = function () {
+    };
     HeaderComponent.decorators = [
         { type: Component, args: [{
                     selector: 'hpt-header',
-                    template: '<div></div><router-outlet></router-outlet>'
+                    templateUrl: './header.component.html'
                 },] },
     ];
     /** @nocollapse */

@@ -2,10 +2,10 @@ import { OnInit, Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'hpt-header',
-    template: '<div></div><router-outlet></router-outlet>'
+    templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
     constructor() { }
-
-    ngOnInit() { }
+    ngOnInit() { 
+    }
 }

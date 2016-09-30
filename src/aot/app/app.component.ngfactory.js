@@ -17,8 +17,9 @@ import * as import7 from '@angular/core/src/change_detection/change_detection';
 import * as import8 from '@angular/core/src/metadata/view';
 import * as import9 from '@angular/core/src/linker/component_factory';
 import * as import10 from './app.component.css.shim';
-import * as import11 from '../../app/shared/header/header.component';
-import * as import12 from './shared/header/header.component.ngfactory';
+import * as import11 from '../node_modules/font-awesome/css/font-awesome.css.shim';
+import * as import12 from '../../app/shared/header/header.component';
+import * as import13 from './shared/header/header.component.ngfactory';
 var renderType_AppComponent_Host = null;
 var _View_AppComponent_Host0 = (function (_super) {
     __extends(_View_AppComponent_Host0, _super);
@@ -50,7 +51,10 @@ function viewFactory_AppComponent_Host0(viewUtils, parentInjector, declarationEl
     return new _View_AppComponent_Host0(viewUtils, parentInjector, declarationEl);
 }
 export var AppComponentNgFactory = new import9.ComponentFactory('app-root', viewFactory_AppComponent_Host0, import3.AppComponent);
-var styles_AppComponent = [import10.styles];
+var styles_AppComponent = [
+    import10.styles,
+    import11.styles
+];
 var renderType_AppComponent = null;
 var _View_AppComponent0 = (function (_super) {
     __extends(_View_AppComponent0, _super);
@@ -61,22 +65,24 @@ var _View_AppComponent0 = (function (_super) {
         var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'hpt-header', null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
-        var compView_0 = import12.viewFactory_HeaderComponent0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._HeaderComponent_0_4 = new import11.HeaderComponent();
+        var compView_0 = import13.viewFactory_HeaderComponent0(this.viewUtils, this.injector(0), this._appEl_0);
+        this._HeaderComponent_0_4 = new import12.HeaderComponent();
         this._appEl_0.initComponent(this._HeaderComponent_0_4, [], compView_0);
         compView_0.create(this._HeaderComponent_0_4, [], null);
-        this._el_1 = this.renderer.createElement(parentRenderNode, 'h1', null);
-        this._text_2 = this.renderer.createText(this._el_1, '', null);
+        this._text_1 = this.renderer.createText(parentRenderNode, '\n', null);
+        this._el_2 = this.renderer.createElement(parentRenderNode, 'h1', null);
+        this._text_3 = this.renderer.createText(this._el_2, '', null);
         this._expr_0 = import7.UNINITIALIZED;
         this.init([], [
             this._el_0,
-            this._el_1,
-            this._text_2
+            this._text_1,
+            this._el_2,
+            this._text_3
         ], [], []);
         return null;
     };
     _View_AppComponent0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import11.HeaderComponent) && (0 === requestNodeIndex))) {
+        if (((token === import12.HeaderComponent) && (0 === requestNodeIndex))) {
             return this._HeaderComponent_0_4;
         }
         return notFoundResult;
@@ -88,7 +94,7 @@ var _View_AppComponent0 = (function (_super) {
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_0 = import4.interpolate(1, '', this.context.title, '');
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this.renderer.setText(this._text_2, currVal_0);
+            this.renderer.setText(this._text_3, currVal_0);
             this._expr_0 = currVal_0;
         }
         this.detectViewChildrenChanges(throwOnChange);
@@ -97,7 +103,7 @@ var _View_AppComponent0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_AppComponent0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_AppComponent === null)) {
-        (renderType_AppComponent = viewUtils.createRenderComponentType('c:/Users/sshrestha/Source/Repos/Hamilton Plate Tracker Spa/src/app/app.component.ts class AppComponent - inline template', 0, import8.ViewEncapsulation.Emulated, styles_AppComponent, {}));
+        (renderType_AppComponent = viewUtils.createRenderComponentType('c:/Users/sshrestha/Source/Repos/Hamilton Plate Tracker Spa/src/app/app.component.html', 0, import8.ViewEncapsulation.Emulated, styles_AppComponent, {}));
     }
     return new _View_AppComponent0(viewUtils, parentInjector, declarationEl);
 }

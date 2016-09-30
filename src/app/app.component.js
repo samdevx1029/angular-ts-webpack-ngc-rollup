@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 export var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'My App';
+        this.title = 'My App 29';
     }
     AppComponent.decorators = [
         { type: Component, args: [{
                     selector: 'app-root',
-                    template: '<hpt-header></hpt-header><h1>{{title}}</h1>',
-                    styleUrls: ['./app.component.css']
+                    templateUrl: './app.component.html',
+                    styleUrls: [
+                        './app.component.css',
+                        '../../node_modules/font-awesome/css/font-awesome.css'
+                    ]
                 },] },
     ];
     /** @nocollapse */

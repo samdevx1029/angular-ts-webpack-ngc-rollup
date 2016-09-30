@@ -1,4 +1,4 @@
-# angular2-typescript2-webpack2
+# Angular2 Seed Project
 
 This repo creates an advanced angular2 starter project written in TypeScript2 with basic OOB components. You can add your own components to suit your application needs. 
 

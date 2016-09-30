@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: '<hpt-header></hpt-header><h1>{{title}}</h1>',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html',
+  styleUrls: [
+    './app.component.css',
+    '../../node_modules/font-awesome/css/font-awesome.css'
+  ]
 })
 export class AppComponent {
-  title = 'My App';
+  title = 'My App 29';
 }

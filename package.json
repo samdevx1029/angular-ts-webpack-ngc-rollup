@@ -4,29 +4,22 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-
     "postinstall": "cd src && typings install && cd ..",
-
-
     "lint": "tslint ./app/**/*.ts -t verbose",
-
-
     "webpackbuild": "rimraf dist && cross-env NODE_ENV=production webpack --progress --profile",
-
-
+    "rimrafdev": "rimraf index.html && rimraf globals.js",
+    "webpackbuilddev": "npm run rimrafdev && webpack --config config/webpack.dev.js --progress --profile",
     "ngc": "rimraf src/aot && \"node_modules/.bin/ngc\" -p src/tsconfig-aot.json",
     "rollup": "rimraf dist/app.js && \"node_modules/.bin/rollup\" -c rollup.js",
+    "rollupdev": "rimraf app.js && \"node_modules/.bin/rollup\" -c config/rollup.dev.js",
     "rollupbuild": "npm run ngc && npm run rollup",
+    "rollupbuilddev": "npm run ngc && npm run rollupdev",
+    "build": "npm run webpackbuild && npm run rollupbuild",
+    "builddev": "npm run webpackbuilddev && npm run rollupbuilddev",
     "serve": "cd dist && lite-server",
-
-
-    "start": "npm run build && tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-
-
+    "lite": "lite-server",
+    "servedev": "gulp",
     "minify": "uglifyjs ./dist/app.b6e3cff8f67d9d84a1b0.js --screw-ie8 --compress --mangle --output ./dist/app.b6e3cff8f67d9d84a1b0.min.js",
-
     "test": "karma start"
   },
   "private": true,
@@ -42,17 +35,22 @@
     "core-js": "2.4.1",
     "reflect-metadata": "0.1.8",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "0.6.25"
+    "zone.js": "0.6.25",
+    "font-awesome": "4.6.3"
   },
   "devDependencies": {
     "@angular/compiler": "2.0.1",
     "@angular/compiler-cli": "0.6.3",
     "@angular/platform-server": "2.0.1",
+    "angular2-template-loader": "0.5.0",
+    "awesome-typescript-loader": "2.2.4",
+    "child-process": "1.0.2",
     "concurrently": "2.2.0",
     "cross-env": "2.0.1",
     "css-loader": "0.25.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "file-loader": "0.9.0",
+    "gulp": "3.9.1",
     "html-loader": "0.4.4",
     "html-webpack-plugin": "2.22.0",
     "jasmine-core": "2.5.2",

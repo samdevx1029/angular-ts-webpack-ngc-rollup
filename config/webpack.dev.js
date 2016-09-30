@@ -1,12 +1,11 @@
 // bundles everything except TS files which will be built by rollup.
 
+// webpack stuff
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var failPlugin = require('webpack-fail-plugin');
 var helpers = require('./helpers');
-
-const PRODUCTION = 'production';
 
 const basePlugins = [
   new webpack.DefinePlugin({
@@ -15,20 +14,20 @@ const basePlugins = [
   new webpack.optimize.CommonsChunkPlugin('globals'),
   new HtmlWebpackPlugin({
     template: 'index.template.html',
-    favicon: './src/app/favicon.ico'
+    favicon: 'favicon.ico'
   }),
   new ExtractTextPlugin("styles.css"),
   failPlugin
 ];
 
-const prodPlugins = [
+const devPlugins = [
   new webpack.optimize.UglifyJsPlugin({
     compress: { warnings: false }
   })
 ];
 
 const plugins = basePlugins
-  .concat((process.env.NODE_ENV === 'production') ? prodPlugins: []);
+  .concat((process.env.NODE_ENV === 'development') ? devPlugins: []);
 
 module.exports = {
   entry: {
@@ -40,10 +39,10 @@ module.exports = {
   },
 
   output: {
-    path: helpers.root('dist'),
+    path: helpers.root(''),
     publicPath: '',
-    filename: '[name].[hash].js',
-    chunkFilename: '[id].[hash].chunk.js'
+    filename: '[name].js',
+    chunkFilename: '[id].chunk.js'
   },
 
   resolve: {
@@ -73,3 +72,19 @@ module.exports = {
 
   plugins: plugins
 };
+
+
+// gulp tasks
+var gulp = require('gulp');
+var watch = require('gulp-watch');
+var batch = require('gulp-batch');
+
+gulp.task('build', function () { 
+  console.log('build Working!'); 
+});
+
+gulp.task('watch', function () {
+    watch('**/*.ts', batch(function (events, done) {
+        gulp.start('build', done);
+    }));
+});

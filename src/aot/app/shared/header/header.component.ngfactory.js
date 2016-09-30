@@ -65,30 +65,62 @@ var _View_HeaderComponent0 = (function (_super) {
     }
     _View_HeaderComponent0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
-        this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
-        this._el_1 = this.renderer.createElement(parentRenderNode, 'router-outlet', null);
-        this._appEl_1 = new import2.AppElement(1, null, this, this._el_1);
-        this._RouterOutlet_1_5 = new import10.RouterOutlet(this.parentInjector.get(import11.RouterOutletMap), this._appEl_1.vcRef, this.parentInjector.get(import12.ComponentFactoryResolver), null);
+        this._el_0 = this.renderer.createElement(parentRenderNode, 'nav', null);
+        this._text_1 = this.renderer.createText(this._el_0, '\n    ', null);
+        this._el_2 = this.renderer.createElement(this._el_0, 'a', null);
+        this.renderer.setElementAttribute(this._el_2, 'href', '/html/');
+        this._text_3 = this.renderer.createText(this._el_2, 'HTML', null);
+        this._text_4 = this.renderer.createText(this._el_0, ' |\n    ', null);
+        this._el_5 = this.renderer.createElement(this._el_0, 'a', null);
+        this.renderer.setElementAttribute(this._el_5, 'href', '/css/');
+        this._text_6 = this.renderer.createText(this._el_5, 'CSS', null);
+        this._text_7 = this.renderer.createText(this._el_0, ' |\n    ', null);
+        this._el_8 = this.renderer.createElement(this._el_0, 'a', null);
+        this.renderer.setElementAttribute(this._el_8, 'href', '/js/');
+        this._text_9 = this.renderer.createText(this._el_8, 'JavaScript', null);
+        this._text_10 = this.renderer.createText(this._el_0, ' |\n    ', null);
+        this._el_11 = this.renderer.createElement(this._el_0, 'a', null);
+        this.renderer.setElementAttribute(this._el_11, 'href', '/jquery/');
+        this._text_12 = this.renderer.createText(this._el_11, 'jQuer6', null);
+        this._text_13 = this.renderer.createText(this._el_0, '\n', null);
+        this._text_14 = this.renderer.createText(parentRenderNode, '\n', null);
+        this._el_15 = this.renderer.createElement(parentRenderNode, 'router-outlet', null);
+        this._appEl_15 = new import2.AppElement(15, null, this, this._el_15);
+        this._RouterOutlet_15_5 = new import10.RouterOutlet(this.parentInjector.get(import11.RouterOutletMap), this._appEl_15.vcRef, this.parentInjector.get(import12.ComponentFactoryResolver), null);
         this.init([], [
             this._el_0,
-            this._el_1
+            this._text_1,
+            this._el_2,
+            this._text_3,
+            this._text_4,
+            this._el_5,
+            this._text_6,
+            this._text_7,
+            this._el_8,
+            this._text_9,
+            this._text_10,
+            this._el_11,
+            this._text_12,
+            this._text_13,
+            this._text_14,
+            this._el_15
         ], [], []);
         return null;
     };
     _View_HeaderComponent0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import10.RouterOutlet) && (1 === requestNodeIndex))) {
-            return this._RouterOutlet_1_5;
+        if (((token === import10.RouterOutlet) && (15 === requestNodeIndex))) {
+            return this._RouterOutlet_15_5;
         }
         return notFoundResult;
     };
     _View_HeaderComponent0.prototype.destroyInternal = function () {
-        this._RouterOutlet_1_5.ngOnDestroy();
+        this._RouterOutlet_15_5.ngOnDestroy();
     };
     return _View_HeaderComponent0;
 }(import1.AppView));
 export function viewFactory_HeaderComponent0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_HeaderComponent === null)) {
-        (renderType_HeaderComponent = viewUtils.createRenderComponentType('c:/Users/sshrestha/Source/Repos/Hamilton Plate Tracker Spa/src/app/shared/header/header.component.ts class HeaderComponent - inline template', 0, import8.ViewEncapsulation.None, styles_HeaderComponent, {}));
+        (renderType_HeaderComponent = viewUtils.createRenderComponentType('c:/Users/sshrestha/Source/Repos/Hamilton Plate Tracker Spa/src/app/shared/header/header.component.html', 0, import8.ViewEncapsulation.None, styles_HeaderComponent, {}));
     }
     return new _View_HeaderComponent0(viewUtils, parentInjector, declarationEl);
 }
