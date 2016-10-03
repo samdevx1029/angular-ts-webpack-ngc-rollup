@@ -11,8 +11,7 @@ var rimraf = require('rimraf');
 // tasks
 
 gulp.task('ngc', function (cb) {
-  exec('rimraf src/aot');  
-  exec('\"node_modules/.bin/ngc\" -p src/tsconfig-aot.json', function (err, stdout, stderr) {
+  exec('rimraf src/aot && \"node_modules/.bin/ngc\" -p src/tsconfig-aot.json', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
@@ -20,8 +19,7 @@ gulp.task('ngc', function (cb) {
 });
 
 gulp.task('webpack', function (cb) {
-  exec('rimraf index.html && rimraf globals.js');  
-  exec('webpack --config config/webpack.dev.js --progress --profile', function (err, stdout, stderr) {
+  exec('rimraf index.html && rimraf globals.js && webpack --config config/webpack.dev.js --progress --profile', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
@@ -29,8 +27,7 @@ gulp.task('webpack', function (cb) {
 });
 
 gulp.task('webpack-ngc', ['webpack'], function (cb) {
-  exec('rimraf src/aot');  
-  exec('\"node_modules/.bin/ngc\" -p src/tsconfig-aot.json', function (err, stdout, stderr) {
+  exec('rimraf src/aot && \"node_modules/.bin/ngc\" -p src/tsconfig-aot.json', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
@@ -38,8 +35,7 @@ gulp.task('webpack-ngc', ['webpack'], function (cb) {
 });
 
 gulp.task('rollup-dev', ['ngc'], function (cb) {
-  exec('rimraf app.js');   
-  exec('\"node_modules/.bin/rollup\" -c config/rollup.dev.js', function (err, stdout, stderr) {
+  exec('rimraf app.js && \"node_modules/.bin/rollup\" -c config/rollup.dev.js', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
@@ -47,8 +43,7 @@ gulp.task('rollup-dev', ['ngc'], function (cb) {
 });
 
 gulp.task('webpack-rollup-dev', ['webpack-ngc'], function (cb) {
-  exec('rimraf app.js');   
-  exec('\"node_modules/.bin/rollup\" -c config/rollup.dev.js', function (err, stdout, stderr) {
+  exec('rimraf app.js && \"node_modules/.bin/rollup\" -c config/rollup.dev.js', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);

@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { MaterialModule } from '@angular/material';
+//import { MdMenuModule } from '@angular2-material/menu';
+
 import {} from 'reflect-metadata';
 
 import { AppComponent }   from './app.component';
@@ -19,6 +22,8 @@ import { ProtocolsComponent } from './components/protocols/protocols.component';
         BrowserModule,
         FormsModule,
         HttpModule,
+        MaterialModule.forRoot(),
+        //MdMenuModule.forRoot(),
         appRouting
     ],
     declarations: [

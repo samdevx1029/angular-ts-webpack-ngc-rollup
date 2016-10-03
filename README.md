@@ -25,16 +25,21 @@ Run "npm run webpackbuilddev" from project root. Webpack only builds globals.js 
 
 Run "npm run servedev" from project root. This launches gulp in watch mode. 
 
-Make a tiny change in any of your app's files, for example the title property on app.component.ts or any of your HTML templates or CSS styles so that gulp is triggered.
+Make a tiny change in any of your app's files, for example the title property on app.component.ts or any of your HTML templates or CSS styles so that gulp is triggered. ATM, only TS change works correctly. CSS/HTML change triggers gulp but an eventjs error occurs where the only recourse is to exit with CTRL+C and start over with "npm run webpackbuilddev" followed by "npm run servedev".
 
 At this point, the app files - TS, HTML and CSS files from /src down (or wherever tsconfig-aot.json lives) - are first AOT compiled by NGC and outputted to src/aot/. Rollup then reads into src/aot/ and builds the app into one bundle - app.js. In the process, rollup applies tree-shaking to remove unused functions, reducing the bundle size significantly. Finally, gulp will will invoke lite-server to serve index.html. Since file I/O is occurring for ngc and rollup, this process is slow despite being automated. Need to make this occur in-memory.
 
 2 things to note:
 
 - if the served page does not show correctly and F12 tool shows an error "Angular requires Zone.js prolyfill", manually edit the index.html outputted by webpackbuilddev script above and make sure script "globals.js" appears BEFORE "app.js".
-- if the served page does not reflect your code changes even after the ngc and rollup tasks have completed, hit F12 to refresh.
 
+- if the served page does not reflect your code changes even after the ngc and rollup tasks have completed, hit F5 to refresh.
 
+- if you see error like shown below, just CTRL+C and exit. Start over with "npm run webpackbuilddev" followed by "npm run servedev".
+
+events.js:160                                                                                                                                                                             
+      throw er; // Unhandled 'error' event                                                                                                                                                
+      ^ 
 
 PRODUCTION DEPLOY
 
@@ -47,4 +52,3 @@ Make the following changes manually.
 (2) To index.html, Add 'script' tag with source pointing to hashed app.js from previous step. 
 
 dist folder is now ready to deploy to production/staging web server. You can also serve its content locally with "npm run serve".
-

@@ -1,12 +1,39 @@
-<nav class="nav nav--red">
-    <ul class="nav__list">
-        <li class="nav__list__item"><a href="">Loret2</a></li>
-        <li class="nav__list__item"><a href="">Nobis2</a></li>
-        <li class="nav__list__item"><a href="">Nostrum1</a></li>
-        <li class="nav__list__item"><a href="">Quia3</a></li>
-        <li class="nav__list__item"><a href="">Nonw3</a></li>
-        <li class="nav__list__item"><a href="">Voluptate2</a></li>
-        <li class="nav__list__item"><a href="">Magni</a></li>
-    </ul>
-</nav>
+
+    <div >
+        <ul id="nav-first-row">
+            <div style="float: left">
+                <li>
+                    <a href="default.asp"> {{title}} </a>
+                </li>
+            </div>
+            <div style="float: right">
+                <li style="float: left"><a href="about.asp"> LOG IN </a></li>
+                <li style="float: left"><a href="about.asp"> SIGN UP </a></li>
+                <li style="float: right">
+                    <a href="about.asp"> ABOUT </a>
+                </li>
+            </div>
+        </ul>
+    </div>
+    <div>        
+        <ul id="nav-second-row"> 	
+            <li id="dashboard"><a href="#">DASHBOARD </a></li>
+            <li>
+                <span><a href="/about/">PROTOCOL DEFINITIONS<span id="protocol-definitions"><md-icon style="color: yellow; width: 10px height: 10px;" svgSrc="/src/assets/ic_keyboard_arrow_down_black_24px.svg"></md-icon></span></a></span>
+                <ul>
+                    <li><a href="#">Master Data</a></li>
+                    <li><a href="#">Protocol Methods&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    <li><a href="#">File Upload</a></li>
+                </ul>   
+            </li>
+            <li>
+                <a href="/portfolio/">PLATES </a>
+                <ul>
+                    <li><a href="#"> Plate Events </a></li>
+                    <li><a href="#"> Plate Status </a></li>
+                    <li><a href="#"> Hamilton Files </a></li>
+                </ul>
+            </li>   
+        </ul>
+    </div>
 <router-outlet></router-outlet>
