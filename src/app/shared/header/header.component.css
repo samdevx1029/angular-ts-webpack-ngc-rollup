@@ -63,7 +63,8 @@
 }
 #nav-second-row a{
 	display:inline-block;
-	padding:10px;
+	/*padding:5px 20px 5px 20px;*/
+    padding:10px;
 }
 #nav-second-row ul{
 	position:absolute;
@@ -75,22 +76,15 @@
 #nav-second-row ul li{
 	display:block;
 }
-#nav-second-row li:hover ul{
-	left:0;
-}
 #nav-second-row li:hover a{
 	text-decoration:none;
-	/*background: dodgerblue;
-    color: white*/
+    background: black;
+    color: white;
 }
 #nav-second-row li:hover ul a{
 	text-decoration:none;
 	background:dodgerblue;
     color: white;
-}
-#nav-second-row.dashboard li:hover a{
-	text-decoration:none;
-	background:black;
 }
 #nav-second-row li:hover ul a:hover{
 	text-decoration:none;
@@ -104,12 +98,76 @@
 #nav-second-row a{
 	color: black;;
 	text-decoration:none;
-	font-weight:bold;
 }
 #nav-second-row a:hover{
-	text-decoration:underline;
+	text-decoration:none;
 	background:white;
 }
-/*#protocol-definitions {
-    padding-top: 5px;
+#nav-second-row md-icon{
+    vertical-align: middle;
+    color: gray;
+}
+
+
+/* DASHBOARD icon */
+/*#dashboard button:hover {
+	background: black;
+    color: white;
 }*/
+/*#dashboard button a {
+	width: 60px;
+}*/
+
+
+/* PROTOCOL DEFINITIONS menu */
+
+#protocol-definitions-menu a{
+    text-align: left;
+}
+
+#protocol-definitions-menu ul{
+	width: 290px;
+    text-align: left;
+}
+
+#protocol-definitions-menu:hover ul{
+	left:0;
+}
+#protocol-definitions-menu:hover ul a{
+	text-decoration:none;
+	background:dodgerblue;
+    color: white;
+    margin-left: 0;
+}
+#protocol-definitions-menu:hover ul a:hover{
+	text-decoration:none;
+	background: black;
+}
+#protocol-definitions-menu:hover{
+	text-decoration:none;
+	background:white;
+}
+
+
+/* PLATES menu */
+
+#plates-menu:hover ul{
+	right:0;
+    left: auto;
+    /*margin-right: -30px;*/
+    text-align: right;
+}
+#plates-menu:hover ul a{
+	text-decoration:none;
+	background:dodgerblue;
+    color: white;
+    margin-right: 0px;
+}
+#plates-menu:hover ul a:hover{
+	text-decoration:none;
+	background: black;
+}
+#plates-menu:hover{
+	text-decoration:none;
+	background:white;
+}
