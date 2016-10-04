@@ -6,7 +6,7 @@ import { OnInit, Component, ViewEncapsulation } from '@angular/core';
     styleUrls: [ './header.component.css' ]
 })
 export class HeaderComponent implements OnInit {
-    title = 'PLATE TRACKER1';
+    title = 'PLATE TRACKER';
     constructor() { }
 
     ngOnInit() { 
